@@ -3,7 +3,10 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:ap-south-1:590184124026:task-definition/swiggy:1"
+        TaskDefinition: "arn:aws:ecs:us-east-1:739275474016:task-definition/onais-devops-task-definition:4"
         LoadBalancerInfo:
-          ContainerName: "swiggy"
+          ContainerName: "devops-project"
           ContainerPort: 3000
+          TargetGroupPairInfo:
+              ProductionTargetGroupArn: "arn:aws:elasticloadbalancing:us-east-1:739275474016:targetgroup/Updated-TargetGroup-01/7bab94b628e1034c"
+              TestTargetGroupArn: "arn:aws:elasticloadbalancing:us-east-1:739275474016:targetgroup/tg-onais--devops-project-svc-u-2/3fb61a61c302f11e"
