@@ -7,6 +7,3 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "devops-project"
           ContainerPort: 3000
-          TargetGroupPairInfo:
-              ProductionTargetGroupArn: "arn:aws:elasticloadbalancing:us-east-1:739275474016:targetgroup/Updated-TargetGroup-01/7bab94b628e1034c"
-              TestTargetGroupArn: "arn:aws:elasticloadbalancing:us-east-1:739275474016:targetgroup/tg-onais--devops-project-svc-u-2/3fb61a61c302f11e"
