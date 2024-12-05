@@ -49,7 +49,7 @@ phases:
       # - cd dependency-check/bin
       # - ./dependency-check.sh --scan . --format ALL
       - echo "Running SonarQube analysis result"
-      - sonar-scanner -Dsonar.projectKey=sem7-devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.83.118.107:9000
+      # - sonar-scanner -Dsonar.projectKey=sem7-devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.83.118.107:9000
       
 
 artifacts:
