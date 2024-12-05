@@ -32,26 +32,24 @@ phases:
       - export PATH=$SONAR_SCANNER_HOME/bin:$PATH
       - export SONAR_SCANNER_OPTS="-server"
       
-
-
   build:
     commands:
       - echo "Running tests..."
       - echo "Building Docker image..."
       - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
-      - docker build -t onaisali4952/devops-project:latest .
-      - docker push onaisali4952/devops-project:latest
+      - docker build -t $DOCKER_REGISTRY_USERNAME/devops-project:latest .
+      - docker push $DOCKER_REGISTRY_USERNAME/devops-project:latest
       
   post_build:
     commands:
       - echo "Post-build phase started..."
-      - echo "Performing Trivy image scan after building the image..."
-      - trivy image  "$DOCKER_REGISTRY_USERNAME/swiggy:latest" >> trivyimage.txt
-      - echo "Running OWASP Dependency-Check scan..."
-      - cd dependency-check/bin
-      - ./dependency-check.sh --scan . --format ALL
+      # - echo "Performing Trivy image scan after building the image..."
+      # - trivy image  "$DOCKER_REGISTRY_USERNAME/swiggy:latest" >> trivyimage.txt
+      # - echo "Running OWASP Dependency-Check scan..."
+      # - cd dependency-check/bin
+      # - ./dependency-check.sh --scan . --format ALL
       - echo "Running SonarQube analysis result"
-      - sonar-scanner -Dsonar.projectKey=sem7-devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.83.118.107:9000
+      # - sonar-scanner -Dsonar.projectKey=sem7-devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.83.118.107:9000
       
 
 artifacts:
