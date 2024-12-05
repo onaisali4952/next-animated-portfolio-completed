@@ -38,10 +38,11 @@ phases:
     commands:
       - echo "Running tests..."
       - echo "Building Docker image..."
-      # Uncomment and use these if necessary
-      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/devops-project:latest" .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/devops-project:latest"
+      
+      - echo "$DOCKER_REGISTRY_PASSWORD"
+      - docker build -t onaisali4952/devops-project:latest .
+      - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
+      - docker push onaisali4952/devops-project:latest
       - echo "Running SonarQube analysis result"
       - sonar-scanner -Dsonar.projectKey=sem7-devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.83.118.107:9000
   post_build:
