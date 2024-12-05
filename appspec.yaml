@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition: "arn:aws:ecs:us-east-1:739275474016:task-definition/onais-devops-task-definition:4"
         LoadBalancerInfo:
-          ContainerName: "devops-project"
+          ContainerName: "onais-devops-container"
           ContainerPort: 3000
