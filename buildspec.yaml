@@ -55,3 +55,4 @@ artifacts:
     - appspec.yaml
     - trivy-report.json
     - trivyfilescan.txt
+    - trivyimage.txt
