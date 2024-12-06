@@ -42,7 +42,7 @@ phases:
     commands:
       - echo "Post-build phase started..."
       - echo "Performing Trivy image scan after building the image..."
-      - trivy image  "$DOCKER_REGISTRY_USERNAME/swiggy:latest" >> trivyimage.txt
+      - trivy image  "$DOCKER_REGISTRY_USERNAME/devops-project:latest" >> trivyimage.txt
       # - echo "Running OWASP Dependency-Check scan..."
       # - cd dependency-check/bin
       # - ./dependency-check.sh --scan . --format ALL
