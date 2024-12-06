@@ -24,11 +24,9 @@ const Homepage = () => {
           </h1>
           {/* DESC */}
           <p className="md:text-xl">
-            Welcome to our digital canvas, where innovation and creativity
-            converge. With an emphasis on automation and efficiency, this project was built to 
+            With an emphasis on automation and efficiency, this project was built to 
             showcase both blue/green deployment and the CI/CD pipeline.
           </p>
-          {/* BUTTONS */}
           <div className="w-full flex gap-4">
             <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
               View My Work
