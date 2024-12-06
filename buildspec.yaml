@@ -17,7 +17,6 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - echo "Performing Trivy file scan before building the image..."
-      # Uncomment and use these if necessary
       - wget https://github.com/aquasecurity/trivy/releases/download/v0.19.2/trivy_0.19.2_Linux-64bit.tar.gz
       - tar zxvf trivy_0.19.2_Linux-64bit.tar.gz
       - export PATH=$PATH:$PWD
@@ -34,7 +33,6 @@ phases:
       
   build:
     commands:
-      - echo "Running tests..."
       - echo "Building Docker image..."
       - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
       - docker build -t $DOCKER_REGISTRY_USERNAME/devops-project:latest .
@@ -43,8 +41,8 @@ phases:
   post_build:
     commands:
       - echo "Post-build phase started..."
-      # - echo "Performing Trivy image scan after building the image..."
-      # - trivy image  "$DOCKER_REGISTRY_USERNAME/swiggy:latest" >> trivyimage.txt
+      - echo "Performing Trivy image scan after building the image..."
+      - trivy image  "$DOCKER_REGISTRY_USERNAME/swiggy:latest" >> trivyimage.txt
       # - echo "Running OWASP Dependency-Check scan..."
       # - cd dependency-check/bin
       # - ./dependency-check.sh --scan . --format ALL
@@ -56,3 +54,4 @@ artifacts:
   files:
     - appspec.yaml
     - trivy-report.json
+    - trivyfilescan.txt
