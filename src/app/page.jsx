@@ -24,8 +24,7 @@ const Homepage = () => {
           </h1>
           {/* DESC */}
           <p className="md:text-xl">
-            With an emphasis on automation and efficiency, this project was built to 
-            showcase both blue/green deployment and the CI/CD pipeline.
+            demo text
           </p>
           <div className="w-full flex gap-4">
             <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
