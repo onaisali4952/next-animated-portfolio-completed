@@ -47,10 +47,10 @@ phases:
       - trivy image  "$DOCKER_REGISTRY_USERNAME/devops-project:latest" >> trivyimage.txt
       - echo "Running OWASP Dependency-Check scan..."
       - cd dependency-check/bin
-      - ./dependency-check.sh --scan . --format JSON --out 
+      - ./dependency-check.sh --scan . --format JSON
       - mkdir -p /artifacts
       - mv ./dependency-check-report.json /artifacts/
-      
+
 artifacts:
   files:
     - appspec.yaml
