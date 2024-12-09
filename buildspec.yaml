@@ -41,13 +41,13 @@ phases:
   post_build:
     commands:
       - echo "Post-build phase started..."
+      - echo "Running SonarQube analysis result"
+      - sonar-scanner -Dsonar.projectKey=devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.92.25.198:9000/
       - echo "Performing Trivy image scan after building the image..."
       - trivy image  "$DOCKER_REGISTRY_USERNAME/devops-project:latest" >> trivyimage.txt
       - echo "Running OWASP Dependency-Check scan..."
       - cd dependency-check/bin
       - ./dependency-check.sh --scan . --format ALL
-      - echo "Running SonarQube analysis result"
-      - sonar-scanner -Dsonar.projectKey=devops-project -Dsonar.sources=. -Dsonar.host.url=http://3.92.25.198:9000/
 
 artifacts:
   files:
