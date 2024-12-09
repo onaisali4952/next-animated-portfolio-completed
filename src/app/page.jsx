@@ -20,7 +20,7 @@ const Homepage = () => {
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
           {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
-            Showcasing AWS CI/CD pipeline
+            I am recording an online video presentation
           </h1>
           {/* DESC */}
           <p className="md:text-xl">
